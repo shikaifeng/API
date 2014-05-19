@@ -51,18 +51,17 @@ RSpec.describe "Thrift::Api::V1::Test" do
                 session = "1233434354353"
                 opt = {"fields" => "user_id,nick,sex,avatar"}
                 @data = @t.taobao_top.get_user_buyer(session,opt)
-                @obj= JSON.parse(@data)
-                #puts @obj     
+                @obj= JSON.parse(@data)    
                 @obj["error_response"]["code"] == 27
                 @obj["error_response"]["msg"].should eq "Invalid session"
             end
-            #5.opt is blank no data returned
-            it "when opt is blank,returned all vaulse" do
-                session = "6100506425279d184141918e66dd4e6368eca7e24a1e92489310901"
-                opt = {"fields" => ""}
+            #5.user didn't set avatar,returned avatar is none
+            it "when user's avatar is blank, the vaule is none" do
+                session = "6101530d5b84f14dd237378f07f76de2a31a1b1697864b02102684958"
+                opt = {"fields" => "user_id,nick,sex,avatar"}
                 @data = @t.taobao_top.get_user_buyer(session,opt)
                 @obj= JSON.parse(@data)
-                puts @obj     
+                puts @obj["user_buyer_get_response"]["user"].should_not include "avatar"   
             end
          end
       end
