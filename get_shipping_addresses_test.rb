@@ -19,7 +19,7 @@ RSpec.describe "Thrift::Api::V1::Test" do
                 opt ={"fields" => "address_id, receiver_name, phone, mobile, is_default, location.address, location.zip, location.city, location.district,location.state"}
                 @data = @t.taobao_top.get_shipping_addresses(session,opt)
                 @obj= JSON.parse(@data)
-                #puts @obj
+                puts @obj
             end
             #1.valid the number of user's address.premise user has at least one adress.
             it "valid returned address count" do

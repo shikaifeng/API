@@ -13,7 +13,8 @@ module Thrift
                 attr_accessor :transport
                 attr_accessor :taobao_top
                 def initialize()
-                    @socket    = Thrift::Socket.new('218.108.129.132', 12100)
+                    #@socket    = Thrift::Socket.new('218.108.129.132', 12100)
+                    @socket    = Thrift::Socket.new('127.0.0.1', 12100)
                     @transport = Thrift::BufferedTransport.new(@socket)    
                     taobao_top_protocol   = Thrift::MultiplexedProtocol.new(@transport, 'taobao_top_v1_processor')
                     @taobao_top = TaobaoThrift::TopServiceV1::Client.new(taobao_top_protocol)    
