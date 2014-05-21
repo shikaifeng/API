@@ -9,7 +9,7 @@ require "json"
 
 
 RSpec.describe "Thrift::Api::V1::Test" do
-        # get_user_buyer methed test
+        # get_shipping_addresses methed test
         describe "get_shipping_addresses methed test" do
          # normal Test   
           describe "normal Test" do
@@ -39,7 +39,7 @@ RSpec.describe "Thrift::Api::V1::Test" do
             it "valid key of the shipping_address" do
                 expect(@obj["shipping_addresses_get_response"]["shipping_addresss"]["shipping_address"][0]["location"].has_key?"address").to be true
                 expect(@obj["shipping_addresses_get_response"]["shipping_addresss"]["shipping_address"][0]["location"].has_key?"city").to be true
-                expect(@obj["shipping_addresses_get_respopremise user has at least one adress.nse"]["shipping_addresss"]["shipping_address"][0]["location"].has_key?"state").to be true
+                expect(@obj["shipping_addresses_get_response"]["shipping_addresss"]["shipping_address"][0]["location"].has_key?"state").to be true
                 expect(@obj["shipping_addresses_get_response"]["shipping_addresss"]["shipping_address"][0]["location"].has_key?"zip").to be true
             end
         end
