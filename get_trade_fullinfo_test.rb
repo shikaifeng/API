@@ -53,7 +53,7 @@ RSpec.describe "Thrift::Api::V1::Test" do
                 @obj["error_response"]["code"].should eq 27
                 @obj["error_response"]["msg"].should eq "Invalid session"
             end
-            #4.tid not excised,return none
+            #4.tid is blank,return none
             it "when tid not excised,return none" do
                 session = "6100506425279d184141918e66dd4e6368eca7e24a1e92489310901"
                 opts={"fields" => "seller_nick, buyer_nick, title, type, created", "tid" => ""}
