@@ -37,15 +37,13 @@ RSpec.describe "Thrift::Api::V1::Test" do
                 opts={"cids" => "111"}
                 @data = @t.taobao_top.get_itemcats(opts)
                 @obj= JSON.parse(@data)
-                puts @obj
-               puts @obj["itemcats_get_response"].count.should == 0
+                puts @obj["itemcats_get_response"].count.should == 0
             end
             #3.valid cid is none
             it "when cid not excise,returned error_response" do
                 opts={"cids" => ""}
                 @data = @t.taobao_top.get_itemcats(opts)
                 @obj= JSON.parse(@data)
-                puts @obj
                 @obj["error_response"]["code"].should eq 41    
                 @obj["error_response"]["msg"].should eq "Invalid arguments:cids" 
             end
