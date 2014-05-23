@@ -35,7 +35,7 @@ RSpec.describe "Thrift::Api::V1::Test" do
                 @data[0].should eq ""
             end
             #3.商品id错误，返回优惠信息为空
-            it "when item_id is none,return none" do
+            it "when item_id is error,return none" do
                 opts=["112312312"]
                 @data = @t.taobao_top.get_ju_promotion(opts)
                 @data[0].should eq ""
